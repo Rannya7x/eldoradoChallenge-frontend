@@ -1,0 +1,32 @@
+<h1>Devices</h1>
+<form [formGroup]="devicesForm" (ngSubmit)="devicesSubmit()">
+  <h3>Adicionar novo device</h3>
+  <label for="color">Color</label>
+  <input type="text" formControlName="color"/>
+
+  <label for="categories">Category</label>
+  <select type="text" formControlName="category">
+    <option value="category">Category</option>
+  </select>
+
+  <label for="partNumber">partNumber</label>
+  <input type="number" formControlName="partNumber"/>
+
+  <button type="submit">Adicionar</button>
+</form>
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Color</th>
+    <th>Category</th>
+    <th>partNumber</th>
+    <th>Ações</th>
+  </tr>
+  <tr *ngFor = 'let us of readDevices'>
+    <td scope="row">{{us.id}}</td>
+    <td>{{us.color}}</td>
+    <td>{{us.category}}</td>
+    <td>{{us.partNumber}}</td>
+    <td><button type="button" (click)="deleteDevice(us.id)">Deletar</button></td>
+  </tr>
+</table>
