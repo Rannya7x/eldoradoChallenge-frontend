@@ -25,9 +25,9 @@ export class DevicesComponent implements OnInit {
   }
   title = 'Devices';
   devicesForm = new FormGroup({
-    'color':new FormControl('', Validators.required),
+    'color':new FormControl('', [Validators.required, Validators.maxLength(16), Validators.pattern('^[a-zA-Z ]*$')]),
     'category':new FormControl('', Validators.required),
-    'partNumber':new FormControl('', Validators.required)
+    'partNumber':new FormControl('', [Validators.required, Validators.pattern(/^-?(0|[1-9]\d*)?$/)])
   });
 
   devicesSubmit(){

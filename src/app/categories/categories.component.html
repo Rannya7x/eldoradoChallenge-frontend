@@ -1,19 +1,19 @@
-<h1>Categorias</h1>
 <form [formGroup]="categoriesForm" (ngSubmit)="categoriesSubmit()">
   <h3>Adicionar nova categoria</h3>
   <label for="name">Nome</label>
-  <input type="text" formControlName="name"/>
-
+  <input type="text" formControlName="name" maxlength="128"/>
   <button type="submit">Adicionar</button>
 </form>
+<h2>Categorias</h2>
 <table>
   <tr>
     <th>Id</th>
     <th>Name</th>
+    <th>Ações</th>
   </tr>
   <tr *ngFor = 'let us of readCategories'>
     <td scope="row">{{us.id}}</td>
     <td>{{us.name}}</td>
-    <td><button type="button" (click)="deleteCategory(us.id)">Deletar</button></td>
+    <td><button class="button-delete" type="button" (click)="deleteCategory(us.id)">Deletar</button></td>
   </tr>
 </table>

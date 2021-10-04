@@ -20,9 +20,9 @@ export class CategoriesComponent implements OnInit{
   }
   title = 'Categories';
   categoriesForm = new FormGroup({
-    'name':new FormControl('', Validators.required),
+    'name':new FormControl('', [Validators.required, Validators.maxLength(128)]),
   });
-  
+
   categoriesSubmit(){
     if(this.categoriesForm.valid){
       console.log(this.categoriesForm.value);
