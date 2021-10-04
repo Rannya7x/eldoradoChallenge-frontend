@@ -6,7 +6,8 @@
 
   <label for="categories">Category</label>
   <select type="text" formControlName="category">
-    <option value="category">Category</option>
+    <option disabled selected value></option>
+    <option *ngFor = 'let us of readCategories' value="categoria">{{us.name}}</option>
   </select>
 
   <label for="partNumber">partNumber</label>

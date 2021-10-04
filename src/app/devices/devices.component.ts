@@ -12,11 +12,15 @@ export class DevicesComponent implements OnInit {
   constructor( private service:ApiserviceService){}
 
   readDevices:any;
+  readCategories:any;
 
   ngOnInit(): void{
     this.service.getAllData().subscribe((res) => {
       console.log(res);
       this.readDevices = res.data;
+    })
+    this.service.getAllDataCategories().subscribe((res) => {
+      this.readCategories = res.data;
     })
   }
   title = 'Devices';
